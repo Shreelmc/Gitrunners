@@ -20,4 +20,3 @@ jobs:
           mvn -f SpringBootHelloWorld --batch-mode --update-snapshots package
           mkdir staging && cp SpringBootHelloWorld/target/*.jar staging
           cd staging && mv *.jar LatestHelloWorld.jar
-          file: 'path="/home/appuser/actions-runner/_work/Gitrunners/Gitrunners/staging/LatestHelloWorld.jar{{ lookup(''pipe'', ''date +%Y%m%d-%H%M'') }}"'
