@@ -1,3 +1,3 @@
 
-<h1>Welcome to Spring Boot</h1>
+<h1>Welcome to Spring Boot app, OK</h1>
 
