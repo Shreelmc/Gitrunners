@@ -1,5 +1,6 @@
 name: Java CI
-on: [push]
+'on':
+  - push
 jobs:
   build:
     runs-on: self-hosted
@@ -9,7 +10,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '8'
-          distribution: 'temurin'
+          distribution: temurin
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
         with:
@@ -18,3 +19,5 @@ jobs:
         run: |
           mvn -f SpringBootHelloWorld --batch-mode --update-snapshots package
           mkdir staging && cp SpringBootHelloWorld/target/*.jar staging
+          cd staging && mv *.jar LatestHelloWorld.jar
+          file: 'path="/home/appuser/actions-runner/_work/Gitrunners/Gitrunners/staging/LatestHelloWorld.jar{{ lookup(''pipe'', ''date +%Y%m%d-%H%M'') }}"'
