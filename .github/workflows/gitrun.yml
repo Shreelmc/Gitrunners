@@ -19,4 +19,4 @@ jobs:
         run: |
           mvn -f SpringBootHelloWorld --batch-mode --update-snapshots package
           mkdir staging && cp SpringBootHelloWorld/target/*.jar staging
-          cd staging && mv *.jar LatestHelloWorld_$(date +'%Y-%m-%d-%H-%M').jar
+          cd staging && mv *.jar LatestHelloWorld_$(date +'%Y%m%d-%H:%M:%S').jar
